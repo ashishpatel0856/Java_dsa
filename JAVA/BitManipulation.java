@@ -1,18 +1,28 @@
 public  class BitManipulation {
 
     public static void main(String[] args) {
-        printBits(32);
+        printBits(48);
         // printEvenOdd(33);
 
         // int res1 = SetIthBits(32, 2);
         // printBits(res1);
 
 
-    //   int res=  toggleIthbit(32, 5);
-    //     printBits(res);
+    //   int res2=  toggleIthbit(32, 5);
+    //     printBits(res2);
 
-    int res = unSetBits(32,5);
-    printBits(res);
+
+        //  checkPowerOfTwo(32);
+         
+    // int res3 = unSetBits(32,5);
+    // printBits(res2);
+
+    // int res4 = unSetRightMostSetBit(33);
+    // printBits(res4);
+
+   NoOfSetBits(48);
+   
+
     }
 
     public static void printBits(int num){
@@ -49,4 +59,27 @@ public  class BitManipulation {
     public static int unSetBits(int num,int bit){
         return num & ~(1<<bit);
     }
+
+
+   public static void  checkPowerOfTwo(int num){
+           if((num & num -1) == 0){
+            System.out.println("number is power of two");
+           } 
+           else {
+            System.out.println("num is not power of two");
+           }
+   }
+
+   public static int unSetRightMostSetBit(int num){
+    return ( num & num-1);
+   }
+
+   public static void NoOfSetBits(int num){
+    int count = 0;
+    while(num !=0){
+        count++;
+        num = unSetRightMostSetBit(num);
+    }
+    System.out.println(count);
+   }
 }
