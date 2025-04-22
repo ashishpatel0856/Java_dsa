@@ -4,20 +4,20 @@ import java.util.Arrays;
 public class dsaMath2 {
 
     public static void main(String[] args){
-        // countDigits(7984986);
-        // countDigits(0);
-        // countDigitsViaLog(5623);
+        countDigits(7984986);
+        countDigits(0);
+        countDigitsViaLog(5623);
 
-        // armstrongNumber(153);
-        // printAllDivisor(24);
-        // primeNumber(16);
-        // seiveAlgo(5);
-        // GCD(0, 36);
-        // euclideanGcd(1, 36);
-        // efficientEuclideanGcd(24, 36);
-        // lcm(24, 36);
+        armstrongNumber(153);
+        printAllDivisor(24);
+        primeNumber(16);
+        seiveAlgo(5);
+        GCD(0, 36);
+        euclideanGcd(1, 36);
+        efficientEuclideanGcd(24, 36);
+        lcm(24, 36);
 
-        // fastExponentiation(446846,8,100);
+        fastExponentiation(446846,8,100);
         factorial(2);
     }
     public static void countDigits(int num){
