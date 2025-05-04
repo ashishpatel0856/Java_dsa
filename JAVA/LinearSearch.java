@@ -157,4 +157,7 @@ public class LinearSearch{
     }
     System.out.println("maximum sum subarray is:"+max+"for the indeex:"+resIndex);
    }
+
+
+   
 }
