@@ -1,16 +1,20 @@
 public class Sorting{
     public static void main(String[] args){
 
-        int arr[] = {5,1,0,9,2,7,3};
-        SelectionSorting(arr);
-        printArray(arr, "sorted array");
+        // int arr[] = {5,1,0,9,2,7,3};
+        // SelectionSorting(arr);
+        // printArray(arr, "sorted array");
 
-        bubbleSort(arr);
-        printArray(arr, "sorted array using bubble sorting");
+        // bubbleSort(arr);
+        // printArray(arr, "sorted array using bubble sorting");
 
-        brickSort(arr);
-        printArray(arr, "sorted array using brick sortig");
+        // brickSort(arr);
+        // printArray(arr, "sorted array using brick sortig");
         
+        int arr[] = {2,1,0,6,8,1,2,5,8};
+       int res[] = countingSort(arr);
+       printArray(res, "counting sort");
+
     }
      public static void printArray(int arr[],String message){
         System.out.println("Printing "+ message);
@@ -87,6 +91,43 @@ public class Sorting{
                 break;
             }
         }
+    }
+
+    public static int[] countingSort(int arr[]){
+        // find max = k
+        int n = arr.length;
+        int k = Integer.MIN_VALUE;
+        int res[] = new int[n];
+        for(int i =0;i<n;i++){
+          if(arr[i]>k){
+            k = arr[i];
+          }
+        }
+
+        if(k == Integer.MIN_VALUE){
+            return res;
+        }
+      
+        //  find the frequency of arr elements
+        int countArr[] = new int[k+1];
+        for(int i =0;i<n;i++){
+            int idx = arr[i];
+            countArr[idx] +=1;
+        }
+
+
+        // find cumulative frequency 
+        for(int i =1;i<=k;i++){
+            countArr[i] += countArr[i-1];
+        }
+
+        //find the final sorted array
+        for(int i =n-1;i>=0;i--){
+            int val = arr[i];
+            int countVal = --countArr[val];
+            res[countVal] = val;
+        }
+        return res;
     }
 
 }
