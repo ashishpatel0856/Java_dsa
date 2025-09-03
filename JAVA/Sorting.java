@@ -11,9 +11,13 @@ public class Sorting{
         // brickSort(arr);
         // printArray(arr, "sorted array using brick sortig");
         
-        int arr[] = {2,1,0,6,8,1,2,5,8};
-       int res[] = countingSort(arr);
-       printArray(res, "counting sort");
+    //     int arr[] = {2,1,0,6,8,1,2,5,8};
+    //    int res[] = countingSort(arr);
+    //    printArray(res, "counting sort");
+
+          int arr[] ={603,85,7,4,12,1000,282,10};
+          radixSort(arr);
+          printArray(arr, "radix sort");
 
     }
      public static void printArray(int arr[],String message){
@@ -130,4 +134,55 @@ public class Sorting{
         return res;
     }
 
+
+    public static void countingSortWithDigits(int arr[] , int digits){
+        int n = arr.length;
+        int k = 9;
+        int res[] = new int[n];
+    
+        //  find the frequency of arr elements
+        int countArr[] = new int[k+1];
+        for(int i =0;i<n;i++){
+            int idx =( arr[i]/digits)%10;
+            countArr[idx] +=1;
+        }
+
+
+        // find cumulative frequency 
+        for(int i =1;i<=k;i++){
+            countArr[i] += countArr[i-1];
+        }
+
+        //find the final sorted array
+        for(int i =n-1;i>=0;i--){
+            int val = arr[i];
+            int idx =( arr[i]/digits)%10;
+
+            int countVal = --countArr[idx];
+            res[countVal] = val;
+        }
+
+        // copy back to original array
+        for(int i =0;i<n;i++){
+            arr[i] =res[i];
+        }
+    
+    }
+   
+    public static void radixSort(int arr[] ){
+        int n = arr.length;
+        int maxEl = Integer.MIN_VALUE;
+        for(int i =0;i<n;i++){
+            if(arr[i]>maxEl){
+                maxEl = arr[i];
+            }
+        }
+        if(maxEl == Integer.MIN_VALUE){
+            System.out.println("empty array");
+            return;
+        }
+        for(int digit = 1;maxEl/digit > 0;digit *=10 ){
+            countingSortWithDigits(arr, digit);
+        }
+    }
 }
