@@ -21,9 +21,17 @@ public class Sorting{
 
 
                     
-    int arr[] ={24,22,25,22,21,27};
-    PigeonHoleSort(arr);
-    printArray(arr,"pegion sort");
+    // int arr[] ={24,22,25,22,21,27};
+    // PigeonHoleSort(arr);
+    // printArray(arr,"pegion sort");
+
+    // int arr[] ={3,5,2,1,4,6};
+    // CycleSort(arr);
+    // printArray(arr,"cyclic sort");
+
+    int arr[] ={3,5,2,1,4,6,0};
+    CycleSort0ToN(arr);
+    printArray(arr,"cyclic sort 0 to n");
     }
      public static void printArray(int arr[],String message){
         System.out.println("Printing "+ message);
@@ -229,6 +237,40 @@ public class Sorting{
                 }
             }
         }
+
+
+    public static void CycleSort(int arr[]){
+        int n = arr.length;
+        int idx =0;
+        while (idx < n){
+            int ele = arr[idx];
+            int actualIndex = ele -1;
+            // if ele is not at the correct pos then perform swapping
+            if(arr[idx]<n && arr[idx] !=arr[actualIndex]){
+                int temp = arr[idx];
+                arr[idx]=arr[actualIndex];
+                arr[actualIndex] =temp;
+            } else{
+                idx++;
+            }
+        }
+    }
         
+    public static void CycleSort0ToN(int arr[]){
+        int n = arr.length;
+        int idx =0;
+        while (idx < n){
+            int ele = arr[idx];
+            int actualIndex = ele;
+            // if ele is not at the correct pos then perform swapping
+            if(arr[idx]<n && arr[idx] !=arr[actualIndex]){
+                int temp = arr[idx];
+                arr[idx]=arr[actualIndex];
+                arr[actualIndex] =temp;
+            } else{
+                idx++;
+            }
+        }
+    }
    
 }
