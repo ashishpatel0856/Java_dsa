@@ -15,10 +15,15 @@ public class Sorting{
     //    int res[] = countingSort(arr);
     //    printArray(res, "counting sort");
 
-          int arr[] ={603,85,7,4,12,1000,282,10};
-          radixSort(arr);
-          printArray(arr, "radix sort");
+        //   int arr[] ={603,85,7,4,12,1000,282,10};
+        //   radixSort(arr);
+        //   printArray(arr, "radix sort");
 
+
+                    
+    int arr[] ={24,22,25,22,21,27};
+    PigeonHoleSort(arr);
+    printArray(arr,"pegion sort");
     }
      public static void printArray(int arr[],String message){
         System.out.println("Printing "+ message);
@@ -185,4 +190,45 @@ public class Sorting{
             countingSortWithDigits(arr, digit);
         }
     }
+
+
+        public static void PigeonHoleSort(int arr[]){
+            int n = arr.length;
+            int max = Integer.MIN_VALUE;
+            int min = Integer.MAX_VALUE;
+
+            for(int i =0;i<n;i++){
+                if(arr[i]>max){
+                    max=arr[i];
+                }
+                if(arr[i]<min){
+                    min = arr[i];
+                }
+            }
+            if(max==Integer.MIN_VALUE || min == Integer.MAX_VALUE){
+                System.out.println("Empty arr");
+                return ;
+            }
+
+            int size = max - min+1;
+            int pigeonHole[] = new int[size];
+
+            // find count arr
+            for(int i=0;i<n;i++){
+                int idx = arr[i]-min;
+                pigeonHole[idx]++;
+            }
+
+            // find the original array
+            int insertIdx = 0;
+            for(int j =0;j<size;j++){
+                while(pigeonHole[j]>0){
+                    arr[insertIdx] = j+min;
+                    insertIdx++;
+                    pigeonHole[j]--;
+                }
+            }
+        }
+        
+   
 }
