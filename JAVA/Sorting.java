@@ -1,9 +1,9 @@
 public class Sorting{
     public static void main(String[] args){
 
-        // int arr[] = {5,1,0,9,2,7,3};
-        // SelectionSorting(arr);
-        // printArray(arr, "sorted array");
+        int arr[] = {5,1,0,9,2,7,3};
+        SelectionSorting(arr);
+        printArray(arr, "sorted array");
 
         // bubbleSort(arr);
         // printArray(arr, "sorted array using bubble sorting");
@@ -11,7 +11,7 @@ public class Sorting{
         // brickSort(arr);
         // printArray(arr, "sorted array using brick sortig");
         
-    //     int arr[] = {2,1,0,6,8,1,2,5,8};
+        // int arr[] = {2,1,0,6,8,1,2,5,8};
     //    int res[] = countingSort(arr);
     //    printArray(res, "counting sort");
 
@@ -29,9 +29,9 @@ public class Sorting{
     // CycleSort(arr);
     // printArray(arr,"cyclic sort");
 
-    int arr[] ={3,5,2,1,4,6,0};
-    CycleSort0ToN(arr);
-    printArray(arr,"cyclic sort 0 to n");
+    // int arr[] ={3,5,2,1,4,6,0};
+    // CycleSort0ToN(arr);
+    // printArray(arr,"cyclic sort 0 to n");
     }
      public static void printArray(int arr[],String message){
         System.out.println("Printing "+ message);
