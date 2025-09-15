@@ -45,7 +45,7 @@ public class CollectionsFW {
                 if(res ==0){
                    return A.name.compareTo(B.name);
                 }
-                return res;
+                return res;  
             }
         } );
         System.out.println(lists);
