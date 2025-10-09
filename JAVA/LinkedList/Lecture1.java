@@ -56,6 +56,8 @@ public class Lecture1{
         System.out.println("Insertion successful at position"+position);
     }
 
+    
+
     public void insertHead(int data ){
         Node<Integer> newNode = new Node<>(data);
         if(head == null){
