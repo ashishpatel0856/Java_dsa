@@ -15,6 +15,29 @@ public class basics1{
             System.out.print(temp.data+" ");
             temp=temp.next;
         }
+
+    }
+     public static void displayrec(Node head){
+        if(head==null) return;
+        
+        System.out.print(head.data+" ");
+         displayrec(head.next);
+    }
+
+   public static void displayreverse(Node head){
+        if(head==null) return;
+           displayrec(head.next);
+        System.out.print(head.data+" ");
+     
+    }
+
+    public static int length(Node head){
+        int count =0;
+        while(head!=null){
+            count++;
+            head = head.next;
+        }
+        return count;
     }
     public static void main(String[] args) {
         Node a = new Node(4);
@@ -48,6 +71,13 @@ public class basics1{
         //     temp=temp.next;
         // }
         display(a);
+        System.err.println("");
+        displayrec(a);
+        System.err.println("");
+        displayreverse(a);
+         System.err.println("");
+
+        System.err.println(length(a));
         
     }
 }
