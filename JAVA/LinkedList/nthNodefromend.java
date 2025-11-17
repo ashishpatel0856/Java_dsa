@@ -41,7 +41,7 @@ public class nthNodefromend {
         return slow;
     }
 
-    public static void deleteNthfromEnd(Node head,int n){
+    public static Node deleteNthfromEnd(Node head,int n){
         Node slow = head;
         Node fast = head;
         for(int i=1;i<=n;i++){
@@ -50,13 +50,14 @@ public class nthNodefromend {
         }
         if(fast==null){
             head = head.next;
-            return;
+            return head;
         }
         while(fast.next!=null){
            slow = slow.next;
            fast = fast.next;
         }
         slow.next=slow.next.next;
+        return head;
         
     }
 
@@ -86,10 +87,10 @@ public class nthNodefromend {
         System.out.println(ass.data);
 
         display(a);
-     deleteNthfromEnd(a, 4);
+        a= deleteNthfromEnd(a, 6);
         System.out.println("");
         display(a);
         
-        // System.out.println(del);
+        
     }
 }
