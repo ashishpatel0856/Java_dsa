@@ -48,6 +48,7 @@ public class nthNodefromend {
             fast=fast.next;
 
         }
+         // delete for 0th element
         if(fast==null){
             head = head.next;
             return head;
@@ -57,7 +58,7 @@ public class nthNodefromend {
            fast = fast.next;
         }
         slow.next=slow.next.next;
-        return head;
+        return head; // deleted for oth ele
         
     }
 
