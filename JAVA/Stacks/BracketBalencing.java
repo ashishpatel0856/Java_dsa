@@ -1,40 +1,56 @@
-import java.util.Stack; 
+
+import java.util.*;
+
 public class BracketBalencing {
+    public static boolean  isBalanced(String str){
+        Stack<Character> st = new Stack<>();
+
+        for(int i =0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(ch == '('){
+                st.push(ch);
+            } else{ //)
+                if(st.size()==0){
+                    return  false;
+                }
+                 if(st.peek()=='(')
+                    st.pop();
+
+            }
+        }
+        if(st.size()!=0) return false;
+        return true;
+    }
+
+
+        public static int  minBracketToBalanced(String str){
+        Stack<Character> st = new Stack<>();
+
+        for(int i =0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(ch == '('){
+                st.push(ch);
+            } else{ //)
+                if(st.size()==0){
+                    return -1;
+                }
+                 if(st.peek()=='(')
+                    st.pop();
+
+            }
+        }
+        return st.size();
+      
+    }
 
     public static void main(String[] args){
-      int res = countReverse("{}}{}{}{{}}}");
-      System.out.println(res);
-    }
-    public static int countReverse(String s){
-        int n = s.length();
-        if(n%2 !=0){
-            return -1;
-        }
+    Scanner sc = new Scanner(System.in);
+    String str = sc.nextLine();
+    System.out.println(isBalanced(str));
 
-        Stack<Character> stack = new Stack<Character>();
-        for(int i =0; i<n;i++){
-            char ch = s.charAt(i);
-            if(ch=='{'){
-                stack.push(ch);
-            } else {
-                if(stack.isEmpty() || stack.peek()=='}'){
-                    stack.push(ch);
-                } else {
-                    stack.pop();
-                }
-            }
-        }
+    System.err.println("");
+    System.out.println(minBracketToBalanced(str));
 
-        int ans =0 , open = 0 , close =0;
-        while(!stack.isEmpty()){
-            char top = stack.pop();
-            if(top =='{'){
-                open++;
-            } else {
-                close++;
-            }
-        }
-        ans = (int)(Math.ceil(open/2.0) + Math.ceil(close/2.0));
-        return ans;
+
     }
 }
