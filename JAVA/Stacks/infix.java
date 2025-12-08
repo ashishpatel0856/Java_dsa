@@ -1,6 +1,5 @@
 
 import java.util.Stack;
-
 public class infix {
     public static void main(String[] args){
         String str = "9-5+4*3/6";
@@ -13,7 +12,7 @@ public class infix {
            if(ascii>=48 && ascii<=57){
             val.push(ascii-48);
            } else if(op.size()==0) op.push(ch);
-
+             
            else{
             if(ch=='+' || ch=='-'){
                 int v2 = val.pop();
@@ -25,7 +24,7 @@ public class infix {
                 op.pop();
                 op.push(ch);
             }
-            if(ch=='*'||ch=='/'){
+            if(ch=='*'||ch=='/'){                                                                                               
                 if(op.peek()=='*'|| op.peek()=='/'){
                     int v2 = val.pop();
                     int v1 = val.pop();
