@@ -43,8 +43,10 @@ public class infixToPrefix{
                    String t = o+v1+v2;
                    val.push(t);
                    op.push(ch);
-                } 
-                op.push(ch);
+                }  else{
+                    op.push(ch);
+                }
+                
             }
         }
         while(val.size()!=1){
